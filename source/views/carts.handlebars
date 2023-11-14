@@ -1,0 +1,15 @@
+{{#each products}}
+    <div>
+        {{this.product.title}} {{this.product.description}} <br>
+        ${{this.product.price}} <br>
+        <button>-</button> {{this.quantity}} <button>+</button>
+        <button id="{{this.product._id}}" class="eliminar-del-carrito">Eliminar del carrito</button>
+        <br>
+    </div>
+{{/each}}
+<h3>Total: ${{totalPrice}}</h3>
+<button id="vaciar-carrito">Vaciar carrito</button>
+<button id="finalizar-compra">Finalizar compra</button>
+
+<script src="/js/carts.js"></script>
+<script src="/js/finalizarCompra.js"></script>

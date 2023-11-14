@@ -1,0 +1,12 @@
+<div>
+    {{#each users}}
+        <div>
+            <p>{{this.email}}</p>
+            <p>rol: {{this.role}}</p>
+            <button class="convertir-en-premium" id="{{this.email}}">Cambiar rol</button>
+            <button id="{{this.email}}" class="eliminar-usuario">Eliminar usuario</button>
+        </div>
+    {{/each}}
+</div>
+
+<script src="/js/users.js"></script>
