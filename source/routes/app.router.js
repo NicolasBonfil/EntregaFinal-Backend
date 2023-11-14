@@ -5,11 +5,12 @@ import messagesRouter from "./messages.router.js"
 import sessionRouter from "./sessions.router.js"
 import usersRouter from "./users.router.js"
 import passportControl from "../middlewares/passport-control.middleware.js"
+import auth from "../middlewares/auth.middlewares.js"
 
 const router = Router()
 
 router.use("/products", passportControl("jwt"), productsRouter.getRouter())
-router.use("/carts", passportControl("jwt"), cartsRouter.getRouter())
+router.use("/carts", passportControl("jwt"), auth(["BASIC", "PREMIUM"]), cartsRouter.getRouter())
 router.use("/messages", passportControl("jwt"), messagesRouter.getRouter())
 router.use("/users", passportControl("jwt"), usersRouter.getRouter())
 router.use("/session", sessionRouter)
